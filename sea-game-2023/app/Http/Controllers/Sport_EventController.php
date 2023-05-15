@@ -13,9 +13,9 @@ class Sport_EventController extends Controller
     public function index()
     {
         //
-        // $sport_event = Sport_Event::all();
+        $sport_event = Sport_Event::all()->matching();
 
-        // return response()->json(['success' => true, 'data' => $sport_event], 200);
+        return response()->json(['success' => true, 'data' => $sport_event], 200);
     }
 
     /**

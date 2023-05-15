@@ -79,6 +79,6 @@ class MatchingController extends Controller
 
         $matching->delete();
 
-        return response()->json(['message' => 'Delete Successfully'], 200);
+        return response()->json(['message' => 'Successfully'], 200);
     }
 }

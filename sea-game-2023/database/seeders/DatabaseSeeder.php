@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Matching;
+use App\Models\Ticket;
 use Illuminate\Database\Seeder;
 
 
@@ -25,6 +26,12 @@ class DatabaseSeeder extends Seeder
             [
                 'title' => 'Cambodia vs Laos',
                 'time' => '04:00:00'
+            ]
+        );
+        Ticket::factory()->create(
+            [
+                'price' => 'Free',
+                'schedule'=>'16 May 2023'
             ]
         );
     }

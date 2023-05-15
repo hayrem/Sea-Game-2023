@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MatchingController;
 use App\Http\Controllers\Sport_EventController;
+use App\Http\Controllers\TicketController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,14 @@ Route::prefix('/matching')->group(function() {
     Route::put('/{id}', [MatchingController::class, 'update']);
     Route::delete('/{id}', [MatchingController::class, 'destroy']);
 });
+Route::prefix('/ticket')->group(function() {
+    Route::get('/', [TicketController::class, 'index']);
+    Route::post('/', [TicketController::class, 'store']);
+    Route::get('/{id}', [TicketController::class, 'show']);
+    Route::put('/{id}', [TicketController::class, 'update']);
+    Route::delete('/{id}', [TicketController::class, 'destroy']);
+});
+
 Route::prefix('sport_event')->group(function() {
     Route::get('/', [Sport_EventController::class, 'index']);
 });
