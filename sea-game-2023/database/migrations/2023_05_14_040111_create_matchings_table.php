@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('matching', function (Blueprint $table) {
+        Schema::create('matchings', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->date('time');
+            $table->time('time');
             $table->timestamps();
         });
     }

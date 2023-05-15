@@ -11,17 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sport_event', function (Blueprint $table) {
+        Schema::create('sport_events', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('type');
             $table->boolean('available_ticket');
             $table->foreignId('matching_id')
-                ->constrained(table:'matching')
+                ->constrained(table:'matchings')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->foreignId('ticket_id')
-                ->constrained(table:'ticket')
+                ->constrained(table:'tickets')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->timestamps();
