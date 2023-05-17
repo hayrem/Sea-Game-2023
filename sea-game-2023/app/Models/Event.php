@@ -8,15 +8,14 @@ use App\Models\Matching;
 use App\Models\Ticket;
 use App\Models\Stadium;
 
-class Sport_Event extends Model
+class Event extends Model
 {
     use HasFactory;
     protected $fillable = [
         'name',
         'type',
-        'availalbe_ticket',
-        'matching_id',
-        'ticket_id',
+        'available_ticket',
+        'stadium_id'
     ];
     public function matching() {
         return $this->hasMany(Matching::class);

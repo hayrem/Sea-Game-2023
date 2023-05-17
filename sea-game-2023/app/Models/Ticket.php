@@ -4,16 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Sport_Event;
+use App\Models\Event;
 
 class Ticket extends Model
 {
     use HasFactory;
     protected $fillable = [
         'price',
-        'schedule'
+        'schedule',
+        'event_id'
     ];
-    public function sport_event() {
-        return $this->belongsTo(Sport_Event::class);
+    public function event() {
+        return $this->belongsTo(Event::class);
     }
 }

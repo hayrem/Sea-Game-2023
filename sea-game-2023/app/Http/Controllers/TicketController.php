@@ -10,10 +10,14 @@ class TicketController extends Controller
     /**
      * Display a listing of the resource.
      */
+    
+
     public function index()
     {
         //
         $ticket = Ticket::all();
+
+        $ticket = Ticket::where('name','like','%'.request('name').'%')->get();
 
         return response()->json(['message' => 'Successful', 'data'=>$ticket], 200);
     }
@@ -24,9 +28,17 @@ class TicketController extends Controller
     public function store(Request $request)
     {
         //
+        // $availableTicket = Ticket::select('tickets.*')
+        //     ->join('events', 'events.id', '=', 'tickets.event_id')
+        //     ->where('tikets.event_id', '=', $request['event_id'])
+        //     ->count();
+        // return $availableTicket;
+
+
         $ticket = Ticket::create([
             'price' => $request->price,
-            'schedule' => $request->schedule
+            'schedule' => $request->schedule,
+            'event_id' => $request->event_id
         ]);
 
         return response()->json(['message' => 'Successful', 'data'=>$ticket], 200);
@@ -53,6 +65,7 @@ class TicketController extends Controller
 
         $ticket->price = $request->price;
         $ticket->schedule = $request->schedule;
+        $ticket->event_id = $request->event_id;
 
         $ticket->save();
 
@@ -70,5 +83,9 @@ class TicketController extends Controller
         $ticket->delete();
 
         return response()->json(['message' => 'Successfully']);
+    }
+
+    public function search(Request $request) {
+
     }
 }

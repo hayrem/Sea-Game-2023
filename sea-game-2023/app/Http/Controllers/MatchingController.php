@@ -27,7 +27,8 @@ class MatchingController extends Controller
         //
         $validator = Validator::make($request->all(), [
             'title' => 'required',
-            'time' => 'required'
+            'time' => 'required',
+            'event_id'=>'required',
         ]);
         if($validator->fails()) {
             return $validator->errors();
@@ -35,7 +36,8 @@ class MatchingController extends Controller
         else {
             $matching = Matching::create([
                 'title' => $request->title,
-                'time' => $request->time
+                'time' => $request->time,
+                'event_id' => $request->event_id
             ]);
             return response()->json(['success' => true, 'data' => $matching], 200);
         }
@@ -62,6 +64,7 @@ class MatchingController extends Controller
 
         $matching->title = $request->title;
         $matching->time = $request->time;
+        $matching->event_id = $request->event_id;
 
         $matching->save();
 

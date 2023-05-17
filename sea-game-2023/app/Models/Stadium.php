@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Sport_Event;
+use App\Models\Event;
 
 class Stadium extends Model
 {
@@ -12,9 +12,8 @@ class Stadium extends Model
     protected $fillable = [
         'name',
         'zone',
-        'sport_event_id',
     ];
-    public function sport_event() {
-        return $this->hasMany(Sport_Event::class);
+    public function event() {
+        return $this->hasMany(Event::class);
     }
 }

@@ -21,6 +21,7 @@ class MatchingFactory extends Factory
             //
             'title' => $this->faker->unique()->sentence(),
             'time' => $this->faker->time('h:i'),
+            'event_id' => $this->faker->numberBetween(1,10)
         ];
     }
 }
